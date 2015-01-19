@@ -1,6 +1,6 @@
 {
   "name": "is-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check if something is a Node.js stream",
   "license": "MIT",
   "repository": "sindresorhus/is-stream",
