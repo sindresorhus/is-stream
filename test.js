@@ -1,6 +1,7 @@
 'use strict';
 var fs = require('fs');
 var Stream = require('stream');
+var net = require('net');
 var test = require('ava');
 var tempfile = require('tempfile');
 var isStream = require('./');
@@ -18,6 +19,7 @@ test('isStream()', function (t) {
 	t.assert(!isStream(null));
 	t.assert(!isStream(undefined));
 	t.assert(!isStream(''));
+	t.assert(isStream(new net.Socket()));
 	t.end();
 });
 
@@ -30,6 +32,7 @@ test('isStream.writable()', function (t) {
 	t.assert(isStream.writable(new Stream.PassThrough()));
 	t.assert(!isStream.writable(fs.createReadStream('test.js')));
 	t.assert(isStream.writable(fs.createWriteStream(tempfile())));
+	t.assert(!isStream.writable(new net.Socket()));
 	t.end();
 });
 
@@ -42,6 +45,7 @@ test('isStream.readable()', function (t) {
 	t.assert(isStream.readable(new Stream.PassThrough()));
 	t.assert(isStream.readable(fs.createReadStream('test.js')));
 	t.assert(!isStream.readable(fs.createWriteStream(tempfile())));
+	t.assert(!isStream.readable(new net.Socket()));
 	t.end();
 });
 
