@@ -5,11 +5,11 @@ var isStream = module.exports = function (stream) {
 };
 
 isStream.writable = function (stream) {
-	return isStream(stream) && stream.writable !== false && typeof stream._write == 'function' && typeof stream._writableState == 'object';
+	return isStream(stream) && stream.writable !== false && typeof stream._write === 'function' && typeof stream._writableState === 'object';
 };
 
 isStream.readable = function (stream) {
-	return isStream(stream) && stream.readable !== false && typeof stream._read == 'function' && typeof stream._readableState == 'object';
+	return isStream(stream) && stream.readable !== false && typeof stream._read === 'function' && typeof stream._readableState === 'object';
 };
 
 isStream.duplex = function (stream) {
