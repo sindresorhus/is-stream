@@ -55,3 +55,14 @@ test('isStream.duplex()', t => {
 	t.false(m.duplex(fs.createReadStream('test.js')));
 	t.false(m.duplex(fs.createWriteStream(tempfile())));
 });
+
+test('isStream.transform()', t => {
+	t.true(m.transform(new Stream.Transform()));
+	t.true(m.transform(new Stream.PassThrough()));
+	t.false(m.transform(new Stream.Duplex()));
+	t.false(m.transform(new Stream.Stream()));
+	t.false(m.transform(new Stream.Readable()));
+	t.false(m.transform(new Stream.Writable()));
+	t.false(m.transform(fs.createReadStream('test.js')));
+	t.false(m.transform(fs.createWriteStream(tempfile())));
+});

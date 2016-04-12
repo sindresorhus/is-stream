@@ -34,6 +34,7 @@ isStream({});
 
 #### isStream.duplex(stream)
 
+#### isStream.transform(stream)
 
 
 ## License

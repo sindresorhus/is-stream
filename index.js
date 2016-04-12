@@ -15,3 +15,7 @@ isStream.readable = function (stream) {
 isStream.duplex = function (stream) {
 	return isStream.writable(stream) && isStream.readable(stream);
 };
+
+isStream.transform = function (stream) {
+	return isStream.duplex(stream) && typeof stream._transform === 'function' && typeof stream._transformState === 'object';
+};
