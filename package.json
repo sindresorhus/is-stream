@@ -20,14 +20,15 @@
   ],
   "keywords": [
     "stream",
+    "type",
     "streams",
     "writable",
     "readable",
     "duplex",
+    "transform",
     "check",
     "detect",
-    "is",
-    "type"
+    "is"
   ],
   "devDependencies": {
     "ava": "*",
