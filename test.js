@@ -2,8 +2,8 @@ import fs from 'fs';
 import Stream from 'stream';
 import net from 'net';
 import test from 'ava';
-import tempfile from 'tempfile';
-import m from './';
+import tempy from 'tempy';
+import m from '.';
 
 test('isStream()', t => {
 	t.true(m(new Stream.Stream()));
@@ -13,7 +13,7 @@ test('isStream()', t => {
 	t.true(m(new Stream.Transform()));
 	t.true(m(new Stream.PassThrough()));
 	t.true(m(fs.createReadStream('test.js')));
-	t.true(m(fs.createWriteStream(tempfile())));
+	t.true(m(fs.createWriteStream(tempy.file())));
 	t.true(m(new net.Socket()));
 	t.false(m({}));
 	t.false(m(null));
@@ -26,7 +26,7 @@ test('isStream.writable()', t => {
 	t.true(m.writable(new Stream.Duplex()));
 	t.true(m.writable(new Stream.Transform()));
 	t.true(m.writable(new Stream.PassThrough()));
-	t.true(m.writable(fs.createWriteStream(tempfile())));
+	t.true(m.writable(fs.createWriteStream(tempy.file())));
 	t.false(m.writable(new Stream.Stream()));
 	t.false(m.writable(new Stream.Readable()));
 	t.false(m.writable(fs.createReadStream('test.js')));
@@ -41,7 +41,7 @@ test('isStream.readable()', t => {
 	t.true(m.readable(fs.createReadStream('test.js')));
 	t.false(m.readable(new Stream.Stream()));
 	t.false(m.readable(new Stream.Writable()));
-	t.false(m.readable(fs.createWriteStream(tempfile())));
+	t.false(m.readable(fs.createWriteStream(tempy.file())));
 	t.false(m.readable(new net.Socket()));
 });
 
@@ -53,7 +53,7 @@ test('isStream.duplex()', t => {
 	t.false(m.duplex(new Stream.Readable()));
 	t.false(m.duplex(new Stream.Writable()));
 	t.false(m.duplex(fs.createReadStream('test.js')));
-	t.false(m.duplex(fs.createWriteStream(tempfile())));
+	t.false(m.duplex(fs.createWriteStream(tempy.file())));
 });
 
 test('isStream.transform()', t => {
@@ -64,5 +64,5 @@ test('isStream.transform()', t => {
 	t.false(m.transform(new Stream.Readable()));
 	t.false(m.transform(new Stream.Writable()));
 	t.false(m.transform(fs.createReadStream('test.js')));
-	t.false(m.transform(fs.createWriteStream(tempfile())));
+	t.false(m.transform(fs.createWriteStream(tempy.file())));
 });
