@@ -34,7 +34,12 @@ isStream({});
 
 #### isStream.duplex(stream)
 
-#### isStream.transform(stream)
+#### isStream.transform(stream
+
+
+## Related
+
+- [is-file-stream](https://github.com/jamestalmage/is-file-stream) - Detect if a stream is a file stream
 
 
 ## License
