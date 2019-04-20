@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save is-stream
+$ npm install is-stream
 ```
 
 
