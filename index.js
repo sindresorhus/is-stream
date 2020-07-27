@@ -26,4 +26,11 @@ isStream.transform = stream =>
 	typeof stream._transform === 'function' &&
 	typeof stream._transformState === 'object';
 
+isStream.type = stream =>
+	isStream.transform(stream) ? 'transform' :
+		isStream.duplex(stream) ? 'duplex' :
+			isStream.writable(stream) ? 'writable' :
+				isStream.readable(stream) ? 'readable' :
+					isStream(stream) ? 'unknown' : 'no-stream';
+
 module.exports = isStream;
