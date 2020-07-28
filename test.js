@@ -68,17 +68,17 @@ test('isStream.transform()', t => {
 });
 
 test('isStream.type()', t => {
-	t.true(isStream.type(new Stream.Transform()) === 'transform');
-	t.true(isStream.type(new Stream.PassThrough()) === 'transform');
-	t.true(isStream.type(new Stream.Duplex()) === 'duplex');
-	t.true(isStream.type(new Stream.Readable()) === 'readable');
-	t.true(isStream.type(new Stream.Writable()) === 'writable');
-	t.true(isStream.type(new Stream.Stream()) === 'unknown');
-	t.true(isStream.type(fs.createReadStream('test.js')) === 'readable');
-	t.true(isStream.type(fs.createWriteStream(tempy.file())) === 'writable');
-	t.true(isStream.type({}) === 'no-stream');
-	t.true(isStream.type(null) === 'no-stream');
-	t.true(isStream.type(undefined) === 'no-stream');
-	t.true(isStream.type('') === 'no-stream');
-	t.true(isStream.type() === 'no-stream');
+	t.is(isStream.type(new Stream.Transform()), 'transform');
+	t.is(isStream.type(new Stream.PassThrough()), 'transform');
+	t.is(isStream.type(new Stream.Duplex()), 'duplex');
+	t.is(isStream.type(new Stream.Readable()), 'readable');
+	t.is(isStream.type(new Stream.Writable()), 'writable');
+	t.is(isStream.type(new Stream.Stream()), 'unknown');
+	t.is(isStream.type(fs.createReadStream('test.js')), 'readable');
+	t.is(isStream.type(fs.createWriteStream(tempy.file())), 'writable');
+	t.is(isStream.type({}), 'no-stream');
+	t.is(isStream.type(null), 'no-stream');
+	t.is(isStream.type(undefined), 'no-stream');
+	t.is(isStream.type(''), 'no-stream');
+	t.is(isStream.type(), 'no-stream');
 });
