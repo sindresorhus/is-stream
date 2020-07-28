@@ -23,3 +23,7 @@ if (isStream.duplex(foo)) {
 if (isStream.transform(foo)) {
 	expectType<stream.Transform>(foo);
 }
+
+if (isStream.type(foo)) {
+	expectType<stream.Stream>(foo);
+}
