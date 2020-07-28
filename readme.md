@@ -1,14 +1,12 @@
-# is-stream [![Build Status](https://travis-ci.org/sindresorhus/is-stream.svg?branch=master)](https://travis-ci.org/sindresorhus/is-stream)
+# is-stream [![Build Status](https://travis-ci.com/sindresorhus/is-stream.svg?branch=master)](https://travis-ci.com/github/sindresorhus/is-stream)
 
 > Check if something is a [Node.js stream](https://nodejs.org/api/stream.html)
-
 
 ## Install
 
 ```
 $ npm install is-stream
 ```
-
 
 ## Usage
 
@@ -22,7 +20,6 @@ isStream(fs.createReadStream('unicorn.png'));
 isStream({});
 //=> false
 ```
-
 
 ## API
 
@@ -46,11 +43,9 @@ Returns a `boolean` for whether it's a [`stream.Duplex`](https://nodejs.org/api/
 
 Returns a `boolean` for whether it's a [`stream.Transform`](https://nodejs.org/api/stream.html#stream_class_stream_transform).
 
-
 ## Related
 
 - [is-file-stream](https://github.com/jamestalmage/is-file-stream) - Detect if a stream is a file stream
-
 
 ---
 
