@@ -43,6 +43,10 @@ Returns a `boolean` for whether it's a [`stream.Duplex`](https://nodejs.org/api/
 
 Returns a `boolean` for whether it's a [`stream.Transform`](https://nodejs.org/api/stream.html#stream_class_stream_transform).
 
+#### isStream.type(stream)
+
+Returns a `string` for which the [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams).
+
 ## Related
 
 - [is-file-stream](https://github.com/jamestalmage/is-file-stream) - Detect if a stream is a file stream
