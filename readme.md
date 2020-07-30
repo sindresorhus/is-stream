@@ -45,7 +45,7 @@ Returns a `boolean` for whether it's a [`stream.Transform`](https://nodejs.org/a
 
 #### isStream.type(stream)
 
-Returns a `string` for which the [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams).
+Returns a `string` to tell the [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams): `readable`, `writable`, `duplex`, `transform` or `unknown` for unknown stream type and `undefined` for non streams.
 
 ## Related
 

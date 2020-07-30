@@ -77,11 +77,12 @@ declare const isStream: {
 	transform(input: unknown): input is stream.Transform;
 
 	/**
-	@returns The [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams).
+	@returns Returns a `string` to tell the [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams): `readable`, `writable`, `duplex`, `transform` or `unknown` for unknown stream type and `undefined` for non streams.
 
 	@example
 	```
 	import * as fs from 'fs';
+	import Stream from 'stream';
 	import isStream = require('is-stream');
 
 	isStream.type(fs.createReadStream('unicorn.png'));
@@ -92,6 +93,9 @@ declare const isStream: {
 
 	isStream.type({});
 	//=> undefined
+
+	isStream.type(new Stream.Stream());
+	//=> unknown
 	```
 	*/
 	type(stream: unknown): stream is stream.Stream;
