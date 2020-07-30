@@ -30,7 +30,6 @@ test('isStream.writable()', t => {
 	t.false(isStream.writable(new Stream.Stream()));
 	t.false(isStream.writable(new Stream.Readable()));
 	t.false(isStream.writable(fs.createReadStream('test.js')));
-	t.false(isStream.writable(new net.Socket()));
 });
 
 test('isStream.readable()', t => {
@@ -42,7 +41,6 @@ test('isStream.readable()', t => {
 	t.false(isStream.readable(new Stream.Stream()));
 	t.false(isStream.readable(new Stream.Writable()));
 	t.false(isStream.readable(fs.createWriteStream(tempy.file())));
-	t.false(isStream.readable(new net.Socket()));
 });
 
 test('isStream.duplex()', t => {
@@ -76,9 +74,9 @@ test('isStream.type()', t => {
 	t.is(isStream.type(new Stream.Stream()), 'unknown');
 	t.is(isStream.type(fs.createReadStream('test.js')), 'readable');
 	t.is(isStream.type(fs.createWriteStream(tempy.file())), 'writable');
-	t.is(isStream.type({}), 'no-stream');
-	t.is(isStream.type(null), 'no-stream');
-	t.is(isStream.type(undefined), 'no-stream');
-	t.is(isStream.type(''), 'no-stream');
-	t.is(isStream.type(), 'no-stream');
+	t.is(isStream.type({}), 'undefined');
+	t.is(isStream.type(null), 'undefined');
+	t.is(isStream.type(undefined), 'undefined');
+	t.is(isStream.type(''), 'undefined');
+	t.is(isStream.type(), 'undefined');
 });
