@@ -25,5 +25,5 @@ if (isStream.transform(foo)) {
 }
 
 if (isStream.type(foo)) {
-	expectType<stream.Stream>(foo);
+	expectType<any>(foo);
 }

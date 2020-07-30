@@ -98,7 +98,7 @@ declare const isStream: {
 	//=> unknown
 	```
 	*/
-	type(stream: unknown): stream is stream.Stream;
+	type(input: unknown): input is any;
 };
 
 export = isStream;
