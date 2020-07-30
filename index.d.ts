@@ -91,7 +91,7 @@ declare const isStream: {
 	//=> writable
 
 	isStream.type({});
-	//=> no-stream
+	//=> undefined
 	```
 	*/
 	type(stream: unknown): stream is stream.Stream;
