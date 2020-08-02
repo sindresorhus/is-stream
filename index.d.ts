@@ -86,7 +86,7 @@ declare const isStream: {
 	import isStream = require('is-stream');
 
 	isStream.type(fs.createReadStream('unicorn.png'));
-	//=> readable
+	//=> 'readable'
 
 	isStream.type(fs.createWriteStream('unicorn.png'));
 	//=> writable
