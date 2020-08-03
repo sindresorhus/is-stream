@@ -89,7 +89,7 @@ declare const isStream: {
 	//=> 'readable'
 
 	isStream.type(fs.createWriteStream('unicorn.png'));
-	//=> writable
+	//=> 'writable'
 
 	isStream.type({});
 	//=> undefined
