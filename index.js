@@ -30,7 +30,6 @@ isStream.type = stream =>
 	isStream.transform(stream) ? 'transform' :
 		isStream.duplex(stream) ? 'duplex' :
 			isStream.writable(stream) ? 'writable' :
-				isStream.readable(stream) ? 'readable' :
-					isStream(stream) ? 'unknown' : 'undefined';
+				isStream.readable(stream) ? 'readable' : undefined;
 
 module.exports = isStream;

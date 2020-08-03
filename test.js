@@ -71,12 +71,12 @@ test('isStream.type()', t => {
 	t.is(isStream.type(new Stream.Duplex()), 'duplex');
 	t.is(isStream.type(new Stream.Readable()), 'readable');
 	t.is(isStream.type(new Stream.Writable()), 'writable');
-	t.is(isStream.type(new Stream.Stream()), 'unknown');
+	t.is(isStream.type(new Stream.Stream()), undefined);
 	t.is(isStream.type(fs.createReadStream('test.js')), 'readable');
 	t.is(isStream.type(fs.createWriteStream(tempy.file())), 'writable');
-	t.is(isStream.type({}), 'undefined');
-	t.is(isStream.type(null), 'undefined');
-	t.is(isStream.type(undefined), 'undefined');
-	t.is(isStream.type(''), 'undefined');
-	t.is(isStream.type(), 'undefined');
+	t.is(isStream.type({}), undefined);
+	t.is(isStream.type(null), undefined);
+	t.is(isStream.type(undefined), undefined);
+	t.is(isStream.type(''), undefined);
+	t.is(isStream.type(), undefined);
 });

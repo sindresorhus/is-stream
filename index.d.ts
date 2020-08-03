@@ -77,7 +77,7 @@ declare const isStream: {
 	transform(input: unknown): input is stream.Transform;
 
 	/**
-	@returns Returns a `string` to tell the [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams): `readable`, `writable`, `duplex`, `transform` or `unknown` for unknown stream type and `undefined` for non streams.
+	@returns Returns a `string` to tell the [`type of stream`](https://nodejs.org/api/stream.html#stream_types_of_streams): `readable`, `writable`, `duplex`, `transform` or `undefined` for unknown stream type and non streams.
 
 	@example
 	```
@@ -95,7 +95,7 @@ declare const isStream: {
 	//=> undefined
 
 	isStream.type(new Stream.Stream());
-	//=> unknown
+	//=> undefined
 	```
 	*/
 	type(input: unknown): input is any;
