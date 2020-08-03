@@ -91,10 +91,16 @@ declare const isStream: {
 	isStream.type(fs.createWriteStream('unicorn.png'));
 	//=> 'writable'
 
-	isStream.type({});
-	//=> undefined
+	isStream.type(new Stream.Transform());
+	//=> 'transform'
+
+	isStream.type(new Stream.Duplex());
+	//=> 'duplex'
 
 	isStream.type(new Stream.Stream());
+	//=> undefined
+
+	isStream.type({});
 	//=> undefined
 	```
 	*/
