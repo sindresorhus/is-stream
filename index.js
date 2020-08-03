@@ -26,10 +26,22 @@ isStream.transform = stream =>
 	typeof stream._transform === 'function' &&
 	typeof stream._transformState === 'object';
 
-isStream.type = stream =>
-	isStream.transform(stream) ? 'transform' :
-		isStream.duplex(stream) ? 'duplex' :
-			isStream.writable(stream) ? 'writable' :
-				isStream.readable(stream) ? 'readable' : undefined;
+isStream.type = stream => {
+	let type;
+
+	if (isStream.transform(stream)) {
+		type = 'transform';
+	} else if (isStream.duplex(stream)) {
+		type = 'duplex';
+	} else if (isStream.writable(stream)) {
+		type = 'writable';
+	} else if (isStream.readable(stream)) {
+		type = 'readable';
+	} else {
+		type = undefined;
+	}
+
+	return type;
+};
 
 module.exports = isStream;
