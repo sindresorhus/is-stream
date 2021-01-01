@@ -1,4 +1,4 @@
-# is-stream [![Build Status](https://travis-ci.com/sindresorhus/is-stream.svg?branch=master)](https://travis-ci.com/github/sindresorhus/is-stream)
+# is-stream
 
 > Check if something is a [Node.js stream](https://nodejs.org/api/stream.html)
 
