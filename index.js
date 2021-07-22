@@ -1,7 +1,7 @@
 'use strict';
 
 const isStream = stream =>
-	stream !== null &&
+	stream !== undefined &&
 	typeof stream === 'object' &&
 	typeof stream.pipe === 'function';
 
