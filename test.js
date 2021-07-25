@@ -27,10 +27,10 @@ test('isStream.writable()', t => {
 	t.true(isStream.writable(new Stream.Transform()));
 	t.true(isStream.writable(new Stream.PassThrough()));
 	t.true(isStream.writable(fs.createWriteStream(tempy.file())));
+	t.true(isStream.writable(new net.Socket()));
 	t.false(isStream.writable(new Stream.Stream()));
 	t.false(isStream.writable(new Stream.Readable()));
 	t.false(isStream.writable(fs.createReadStream('test.js')));
-	t.false(isStream.writable(new net.Socket()));
 });
 
 test('isStream.readable()', t => {
@@ -39,10 +39,10 @@ test('isStream.readable()', t => {
 	t.true(isStream.readable(new Stream.Transform()));
 	t.true(isStream.readable(new Stream.PassThrough()));
 	t.true(isStream.readable(fs.createReadStream('test.js')));
+	t.true(isStream.readable(new net.Socket()));
 	t.false(isStream.readable(new Stream.Stream()));
 	t.false(isStream.readable(new Stream.Writable()));
 	t.false(isStream.readable(fs.createWriteStream(tempy.file())));
-	t.false(isStream.readable(new net.Socket()));
 });
 
 test('isStream.duplex()', t => {
