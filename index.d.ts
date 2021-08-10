@@ -24,7 +24,7 @@ isStream({});
 export function isStream(stream: unknown): stream is Stream;
 
 /**
-@returns Whether `stream` is a [`stream.Writable`](https://nodejs.org/api/stream.html#stream_class_stream_writable).
+@returns Whether `stream` is a [`stream.Writable`](https://nodejs.org/api/stream.html#stream_class_stream_writable), an [`http.OutgoingMessage`](https://nodejs.org/api/http.html#class-httpoutgoingmessage), an [`http.ServerResponse`](https://nodejs.org/api/http.html#class-httpserverresponse) or an [`http.ClientRequest`](https://nodejs.org/api/http.html#class-httpserverresponse).
 
 @example
 ```
@@ -38,7 +38,7 @@ isWritableStream(fs.createWriteStrem('unicorn.txt'));
 export function isWritableStream(stream: unknown): stream is WritableStream;
 
 /**
-@returns Whether `stream` is a [`stream.Readable`](https://nodejs.org/api/stream.html#stream_class_stream_readable).
+@returns Whether `stream` is a [`stream.Readable`](https://nodejs.org/api/stream.html#stream_class_stream_readable) or an [`http.IncomingMessage`](https://nodejs.org/api/http.html#class-httpincomingmessage).
 
 @example
 ```

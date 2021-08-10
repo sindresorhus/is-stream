@@ -7,15 +7,22 @@ export function isStream(stream) {
 export function isWritableStream(stream) {
 	return isStream(stream)
 		&& stream.writable !== false
-		&& typeof stream._write === 'function'
-		&& typeof stream._writableState === 'object';
+		&& typeof stream.write === 'function'
+		&& typeof stream.end === 'function'
+		&& typeof stream.writable === 'boolean'
+		&& typeof stream.writableObjectMode === 'boolean'
+		&& typeof stream.destroy === 'function'
+		&& typeof stream.destroyed === 'boolean';
 }
 
 export function isReadableStream(stream) {
 	return isStream(stream)
 		&& stream.readable !== false
-		&& typeof stream._read === 'function'
-		&& typeof stream._readableState === 'object';
+		&& typeof stream.read === 'function'
+		&& typeof stream.readable === 'boolean'
+		&& typeof stream.readableObjectMode === 'boolean'
+		&& typeof stream.destroy === 'function'
+		&& typeof stream.destroyed === 'boolean';
 }
 
 export function isDuplexStream(stream) {
