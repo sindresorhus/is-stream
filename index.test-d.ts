@@ -1,25 +1,37 @@
-import {expectType} from 'tsd';
-import * as stream from 'stream';
-import isStream = require('.');
+import {
+	Stream,
+	Writable as WritableStream,
+	Readable as ReadableStream,
+	Duplex as DuplexStream,
+	Transform as TransformStream,
+} from 'node:stream';
+import {expectAssignable} from 'tsd';
+import {
+	isStream,
+	isWritableStream,
+	isReadableStream,
+	isDuplexStream,
+	isTransformStream,
+} from './index.js';
 
 const foo = '';
 
 if (isStream(foo)) {
-	expectType<stream.Stream>(foo);
+	expectAssignable<Stream>(foo);
 }
 
-if (isStream.writable(foo)) {
-	expectType<stream.Writable>(foo);
+if (isWritableStream(foo)) {
+	expectAssignable<WritableStream>(foo);
 }
 
-if (isStream.readable(foo)) {
-	expectType<stream.Readable>(foo);
+if (isReadableStream(foo)) {
+	expectAssignable<ReadableStream>(foo);
 }
 
-if (isStream.duplex(foo)) {
-	expectType<stream.Duplex>(new stream.Duplex());
+if (isDuplexStream(foo)) {
+	expectAssignable<DuplexStream>(new DuplexStream());
 }
 
-if (isStream.transform(foo)) {
-	expectType<stream.Transform>(foo);
+if (isTransformStream(foo)) {
+	expectAssignable<TransformStream>(foo);
 }
