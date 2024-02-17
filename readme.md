@@ -23,25 +23,34 @@ isStream({});
 
 ## API
 
-### isStream(stream)
+### isStream(stream, options?)
 
 Returns a `boolean` for whether it's a [`Stream`](https://nodejs.org/api/stream.html#stream_stream).
 
-#### isWritableStream(stream)
+### isWritableStream(stream, options?)
 
 Returns a `boolean` for whether it's a [`stream.Writable`](https://nodejs.org/api/stream.html#stream_class_stream_writable), an [`http.OutgoingMessage`](https://nodejs.org/api/http.html#class-httpoutgoingmessage), an [`http.ServerResponse`](https://nodejs.org/api/http.html#class-httpserverresponse) or an [`http.ClientRequest`](https://nodejs.org/api/http.html#class-httpserverresponse).
 
-#### isReadableStream(stream)
+### isReadableStream(stream, options?)
 
 Returns a `boolean` for whether it's a [`stream.Readable`](https://nodejs.org/api/stream.html#stream_class_stream_readable) or an [`http.IncomingMessage`](https://nodejs.org/api/http.html#class-httpincomingmessage).
 
-#### isDuplexStream(stream)
+### isDuplexStream(stream, options?)
 
 Returns a `boolean` for whether it's a [`stream.Duplex`](https://nodejs.org/api/stream.html#stream_class_stream_duplex).
 
-#### isTransformStream(stream)
+### isTransformStream(stream, options?)
 
 Returns a `boolean` for whether it's a [`stream.Transform`](https://nodejs.org/api/stream.html#stream_class_stream_transform).
+
+### Options
+
+#### checkOpen
+
+Type: `boolean`\
+Default: `false` with [`isStream()`](#isstreamstream-options), `true` with the other methods
+
+When this option is `true`, the method returns `false` if the stream has already been closed.
 
 ## Related
 

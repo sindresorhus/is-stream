@@ -1,12 +1,13 @@
-export function isStream(stream) {
+export function isStream(stream, {checkOpen = false} = {}) {
 	return stream !== null
 		&& typeof stream === 'object'
+		&& (stream.writable || stream.readable || !checkOpen)
 		&& typeof stream.pipe === 'function';
 }
 
-export function isWritableStream(stream) {
+export function isWritableStream(stream, {checkOpen = true} = {}) {
 	return isStream(stream)
-		&& stream.writable !== false
+		&& (stream.writable || !checkOpen)
 		&& typeof stream.write === 'function'
 		&& typeof stream.end === 'function'
 		&& typeof stream.writable === 'boolean'
@@ -15,9 +16,9 @@ export function isWritableStream(stream) {
 		&& typeof stream.destroyed === 'boolean';
 }
 
-export function isReadableStream(stream) {
+export function isReadableStream(stream, {checkOpen = true} = {}) {
 	return isStream(stream)
-		&& stream.readable !== false
+		&& (stream.readable || !checkOpen)
 		&& typeof stream.read === 'function'
 		&& typeof stream.readable === 'boolean'
 		&& typeof stream.readableObjectMode === 'boolean'
@@ -25,12 +26,12 @@ export function isReadableStream(stream) {
 		&& typeof stream.destroyed === 'boolean';
 }
 
-export function isDuplexStream(stream) {
-	return isWritableStream(stream)
-		&& isReadableStream(stream);
+export function isDuplexStream(stream, options) {
+	return isWritableStream(stream, options)
+		&& isReadableStream(stream, options);
 }
 
-export function isTransformStream(stream) {
-	return isDuplexStream(stream)
+export function isTransformStream(stream, options) {
+	return isDuplexStream(stream, options)
 		&& typeof stream._transform === 'function';
 }

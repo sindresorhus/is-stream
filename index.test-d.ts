@@ -5,13 +5,14 @@ import {
 	Duplex as DuplexStream,
 	Transform as TransformStream,
 } from 'node:stream';
-import {expectAssignable} from 'tsd';
+import {expectType, expectAssignable} from 'tsd';
 import {
 	isStream,
 	isWritableStream,
 	isReadableStream,
 	isDuplexStream,
 	isTransformStream,
+	Options,
 } from './index.js';
 
 const foo = '';
@@ -35,3 +36,16 @@ if (isDuplexStream(foo)) {
 if (isTransformStream(foo)) {
 	expectAssignable<TransformStream>(foo);
 }
+
+isStream(foo, {});
+isStream(foo, {checkOpen: false});
+isWritableStream(foo, {});
+isWritableStream(foo, {checkOpen: false});
+isReadableStream(foo, {});
+isReadableStream(foo, {checkOpen: false});
+isDuplexStream(foo, {});
+isDuplexStream(foo, {checkOpen: false});
+isTransformStream(foo, {});
+isTransformStream(foo, {checkOpen: false});
+
+expectType<boolean | undefined>({} as Options['checkOpen']);
