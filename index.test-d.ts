@@ -1,9 +1,9 @@
 import {
-	Stream,
-	Writable as WritableStream,
-	Readable as ReadableStream,
+	type Stream,
+	type Writable as WritableStream,
+	type Readable as ReadableStream,
 	Duplex as DuplexStream,
-	Transform as TransformStream,
+	type Transform as TransformStream,
 } from 'node:stream';
 import {expectType, expectAssignable} from 'tsd';
 import {
@@ -12,7 +12,7 @@ import {
 	isReadableStream,
 	isDuplexStream,
 	isTransformStream,
-	Options,
+	type Options,
 } from './index.js';
 
 const foo = '';

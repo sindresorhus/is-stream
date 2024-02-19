@@ -1,9 +1,9 @@
 import {
-	Stream,
-	Writable as WritableStream,
-	Readable as ReadableStream,
-	Duplex as DuplexStream,
-	Transform as TransformStream,
+	type Stream,
+	type Writable as WritableStream,
+	type Readable as ReadableStream,
+	type Duplex as DuplexStream,
+	type Transform as TransformStream,
 } from 'node:stream';
 
 export type Options = {

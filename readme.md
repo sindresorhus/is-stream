@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install is-stream
+```sh
+npm install is-stream
 ```
 
 ## Usage
@@ -55,15 +55,3 @@ When this option is `true`, the method returns `false` if the stream has already
 ## Related
 
 - [is-file-stream](https://github.com/jamestalmage/is-file-stream) - Detect if a stream is a file stream
-
----
-
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/npm-is-stream?utm_source=npm-is-stream&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
