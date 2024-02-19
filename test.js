@@ -111,3 +111,35 @@ test('isTransformStream()', t => {
 	t.false(isTransformStream(undefined));
 	t.false(isTransformStream(''));
 });
+
+// eslint-disable-next-line max-params
+const testStreamOpen = (t, stream, checkMethod, expectedResult, options) => {
+	t.true(checkMethod(stream, options));
+	stream.destroy();
+	t.is(checkMethod(stream, options), expectedResult);
+};
+
+test('isStream(readable), no options', testStreamOpen, new Stream.Readable(), isStream, false);
+test('isStream(readable, {})', testStreamOpen, new Stream.Readable(), isStream, false, {});
+test('isStream(readable, {checkOpen: true})', testStreamOpen, new Stream.Readable(), isStream, false, {checkOpen: true});
+test('isStream(readable, {checkOpen: false})', testStreamOpen, new Stream.Readable(), isStream, true, {checkOpen: false});
+test('isStream(writable), no options', testStreamOpen, new Stream.Writable(), isStream, false);
+test('isStream(writable, {})', testStreamOpen, new Stream.Writable(), isStream, false, {});
+test('isStream(writable, {checkOpen: true})', testStreamOpen, new Stream.Writable(), isStream, false, {checkOpen: true});
+test('isStream(writable, {checkOpen: false})', testStreamOpen, new Stream.Writable(), isStream, true, {checkOpen: false});
+test('isWritableStream(writable), no options', testStreamOpen, new Stream.Writable(), isWritableStream, false);
+test('isWritableStream(writable, {})', testStreamOpen, new Stream.Writable(), isWritableStream, false, {});
+test('isWritableStream(writable, {checkOpen: true})', testStreamOpen, new Stream.Writable(), isWritableStream, false, {checkOpen: true});
+test('isWritableStream(writable, {checkOpen: false})', testStreamOpen, new Stream.Writable(), isWritableStream, true, {checkOpen: false});
+test('isReadableStream(readable), no options', testStreamOpen, new Stream.Readable(), isReadableStream, false);
+test('isReadableStream(readable, {})', testStreamOpen, new Stream.Readable(), isReadableStream, false, {});
+test('isReadableStream(readable, {checkOpen: true})', testStreamOpen, new Stream.Readable(), isReadableStream, false, {checkOpen: true});
+test('isReadableStream(readable, {checkOpen: false})', testStreamOpen, new Stream.Readable(), isReadableStream, true, {checkOpen: false});
+test('isDuplexStream(duplex), no options', testStreamOpen, new Stream.Duplex(), isDuplexStream, false);
+test('isDuplexStream(duplex, {})', testStreamOpen, new Stream.Duplex(), isDuplexStream, false, {});
+test('isDuplexStream(duplex, {checkOpen: true})', testStreamOpen, new Stream.Duplex(), isDuplexStream, false, {checkOpen: true});
+test('isDuplexStream(duplex, {checkOpen: false})', testStreamOpen, new Stream.Duplex(), isDuplexStream, true, {checkOpen: false});
+test('isTransformStream(transform), no options', testStreamOpen, new Stream.Transform(), isTransformStream, false);
+test('isTransformStream(transform, {})', testStreamOpen, new Stream.Transform(), isTransformStream, false, {});
+test('isTransformStream(transform, {checkOpen: true})', testStreamOpen, new Stream.Transform(), isTransformStream, false, {checkOpen: true});
+test('isTransformStream(transform, {checkOpen: false})', testStreamOpen, new Stream.Transform(), isTransformStream, true, {checkOpen: false});
