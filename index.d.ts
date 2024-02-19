@@ -10,7 +10,7 @@ export type Options = {
 	/**
 	When this option is `true`, the method returns `false` if the stream has already been closed.
 
-	@default: `false` with `isStream()`, `true` with the other methods
+	@default true
 	*/
 	checkOpen?: boolean;
 };

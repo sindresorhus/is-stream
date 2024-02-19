@@ -48,7 +48,7 @@ Returns a `boolean` for whether it's a [`stream.Transform`](https://nodejs.org/a
 #### checkOpen
 
 Type: `boolean`\
-Default: `false` with [`isStream()`](#isstreamstream-options), `true` with the other methods
+Default: `true`
 
 When this option is `true`, the method returns `false` if the stream has already been closed.
 
