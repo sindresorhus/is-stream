@@ -119,12 +119,12 @@ const testStreamOpen = (t, stream, checkMethod, expectedResult, options) => {
 	t.is(checkMethod(stream, options), expectedResult);
 };
 
-test('isStream(readable), no options', testStreamOpen, new Stream.Readable(), isStream, true);
-test('isStream(readable, {})', testStreamOpen, new Stream.Readable(), isStream, true, {});
+test('isStream(readable), no options', testStreamOpen, new Stream.Readable(), isStream, false);
+test('isStream(readable, {})', testStreamOpen, new Stream.Readable(), isStream, false, {});
 test('isStream(readable, {checkOpen: true})', testStreamOpen, new Stream.Readable(), isStream, false, {checkOpen: true});
 test('isStream(readable, {checkOpen: false})', testStreamOpen, new Stream.Readable(), isStream, true, {checkOpen: false});
-test('isStream(writable), no options', testStreamOpen, new Stream.Writable(), isStream, true);
-test('isStream(writable, {})', testStreamOpen, new Stream.Writable(), isStream, true, {});
+test('isStream(writable), no options', testStreamOpen, new Stream.Writable(), isStream, false);
+test('isStream(writable, {})', testStreamOpen, new Stream.Writable(), isStream, false, {});
 test('isStream(writable, {checkOpen: true})', testStreamOpen, new Stream.Writable(), isStream, false, {checkOpen: true});
 test('isStream(writable, {checkOpen: false})', testStreamOpen, new Stream.Writable(), isStream, true, {checkOpen: false});
 test('isWritableStream(writable), no options', testStreamOpen, new Stream.Writable(), isWritableStream, false);
